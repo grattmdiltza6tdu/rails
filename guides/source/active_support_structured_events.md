@@ -19,7 +19,7 @@ After reading this guide, you will understand:
 * The structured events emitted by Rails (framework hooks)
 
 For the complete Event Reporter API, see:
-**`ActiveSupport::EventReporter`** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html)
+[**`ActiveSupport::EventReporter`**](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html)
 
 -------------------------------------------------------------
 
@@ -73,7 +73,7 @@ Rails.event.notify("event.name", { id: 123 })
 
 This attaches metadata and forwards the event to any configured subscribers.
 
-For full method signatures and advanced options (debug, caller depth, filtering rules), see the EventReporter API documentation.
+For full method signatures and advanced options (debug, caller depth, filtering rules), see the [EventReporter API documentation](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html).
 
 ### Event names
 
@@ -97,7 +97,8 @@ Payloads may be:
 Rails merges any additional keyword arguments into the payload hash.
 
 For details on object payloads and automatic key normalization, see:
-**Event Objects** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Event+Objects](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Event+Objects)
+
+* [**Event Objects**](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#class-ActiveSupport::EventReporter-label-Event+Objects)
 
 ### Debug events
 
@@ -110,7 +111,8 @@ Rails.event.debug("cache.evicted", size: 1024)
 Use these for high-volume diagnostic telemetry.
 
 For details:
-**Debug Events** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Debug+Events](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Debug+Events)
+
+* [**Debug Events**](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#class-ActiveSupport::EventReporter-label-Debug+Events)
 
 ---
 
@@ -139,8 +141,9 @@ Rails.event.subscribe(JSONSubscriber.new)
 Subscribers may also use filter procs to receive only certain events.
 
 See:
-**Subscribers** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Subscribers](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Subscribers)
-**Filtered Subscriptions** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Filtered+Subscriptions](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Filtered+Subscriptions)
+
+* [**Subscribers**](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#class-ActiveSupport::EventReporter-label-Subscribers)
+* [**Filtered Subscriptions**](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#class-ActiveSupport::EventReporter-label-Filtered+Subscriptions)
 
 ---
 
@@ -164,7 +167,8 @@ tags: { graphql: true }
 Tags are stack-based and temporary.
 
 See:
-**Tags** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Tags](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Tags)
+
+* [**Tags**](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#class-ActiveSupport::EventReporter-label-Tags)
 
 ---
 
@@ -186,7 +190,8 @@ context: { request_id: "abcd123" }
 ```
 
 For custom stores and behavior:
-**Context Store** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Context+Store](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Context+Store)
+
+* [**Context Store**](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#class-ActiveSupport::EventReporter-label-Context+Store)
 
 ---
 
@@ -258,12 +263,9 @@ These subscribers form the backbone of Rails' built-in events.
 Security
 --------
 
-Hash-based payloads are filtered automatically using `config.filter_parameters`.
+Hash-based payloads are filtered automatically using [`config.filter_parameters`](https://guides.rubyonrails.org/configuring.html#config-filter-parameters).
 
-Event objects must be filtered by the subscriber.
-
-See:
-**Security** — [https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Security](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#label-Security)
+[Event objects](https://api.rubyonrails.org/classes/ActiveSupport/EventReporter.html#class-ActiveSupport::EventReporter-label-Event+Objects) must be filtered by the subscriber, e.g. with [ActiveSupport::ParameterFilter](https://api.rubyonrails.org/classes/ActiveSupport/ParameterFilter.html).
 
 ---
 
